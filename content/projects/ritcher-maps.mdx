@@ -1,42 +1,12 @@
 ---
 title: "ritcher maps"
 description: Generate a typescript http client with zod validation from OpenAPI specs.
-repository: richiexuetang/zodmon
+repository: richiexuetang/ritcher-interactive-maps
 date: "2024-05-11"
+url: https://ritcher-interactive-maps.vercel.app/map/velen-novigrad
 published: true
 ---
 
-Generate a typescript http client with zod validation from OpenAPI specs.
+Interactive game map built with leaflet.
 
-- Fully typed
-- Zero dependencies
-- Serializable to store in a database
-
-## Install
-
-```sh-session
-npm i @zodmon/core
-```
-
-## Usage
-
-```ts
-import { zodmon } from "@zodmon/core";
-
-const apiClient = new zodmon(
-  "https://jsonplaceholder.typicode.com",
-  // API definition
-  [
-    {
-      method: "get",
-      path: "/users/:id", // auto detect :id and ask for it in apiClient get params
-      alias: "getUser", // optional alias to call this endpoint with it
-      description: "Get a user",
-      response: z.object({
-        id: z.number(),
-        name: z.string(),
-      }),
-    },
-  ]
-);
-```
+![](https://raw.githubusercontent.com/upstash/cli/main/img/banner.svg)
