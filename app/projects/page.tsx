@@ -21,9 +21,11 @@ export default async function ProjectsPage() {
   }, {} as Record<string, number>);
 
   //TODO
-  const featured = allProjects.find((project) => project.slug === "access")!;
-  const top2 = allProjects.find((project) => project.slug === "access")!;
-  const top3 = allProjects.find((project) => project.slug === "access")!;
+  const featured = allProjects.find((project) => project.slug === "zodmon")!;
+  const top2 = allProjects.find((project) => project.slug === "ritcher-maps")!;
+  const top3 = allProjects.find(
+    (project) => project.slug === "levels-scraper"
+  )!;
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(
