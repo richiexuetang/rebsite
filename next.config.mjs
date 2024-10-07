@@ -6,6 +6,11 @@ const nextConfig = {
 	experimental: {
 		mdxRs: true,
 	},
+	webpack: (config) => {
+		config.resolve.alias.canvas = false;
+
+		return config;
+	},
 };
 
 export default withContentlayer(nextConfig);

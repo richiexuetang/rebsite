@@ -20,7 +20,6 @@ export default async function ProjectsPage() {
     return acc;
   }, {} as Record<string, number>);
 
-  //TODO
   const featured = allProjects.find((project) => project.slug === "zodmon")!;
   const top2 = allProjects.find((project) => project.slug === "ritcher-maps")!;
   const top3 = allProjects.find(

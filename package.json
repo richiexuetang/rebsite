@@ -1,6 +1,6 @@
 {
   "name": "my-rebsite",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -17,6 +17,7 @@
     "markdown-wasm": "^1.2.0",
     "next": "^13.5.4",
     "next-contentlayer": "^0.3.4",
+    "pdfjs-dist": "^4.3.136",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-pdf": "^9.0.0",
@@ -52,5 +53,5 @@
       "@opentelemetry/semantic-conventions": "1.13.0"
     }
   },
-  "packageManager": "pnpm@8.15.4+sha256.cea6d0bdf2de3a0549582da3983c70c92ffc577ff4410cbf190817ddc35137c2"
+  "packageManager": "pnpm@9.12.1+sha512.e5a7e52a4183a02d5931057f7a0dbff9d5e9ce3161e33fa68ae392125b79282a8a8a470a51dfc8a0ed86221442eb2fb57019b0990ed24fab519bf0e1bc5ccfc4"
 }
