@@ -1,5 +1,4 @@
 "use client";
-import dynamic from "next/dynamic";
 import { Navigation } from "../components/nav";
 import PdfViewer from "../components/pdfviewer";
 
