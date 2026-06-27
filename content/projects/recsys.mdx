@@ -1,0 +1,27 @@
+---
+title: "DIN Recsys"
+description: A Deep Interest Network CTR recommender served across four languages — trained in PyTorch, exported to ONNX, served from Go, and explored through a React console.
+repository: xuer98/recsys
+date: "2026-05-28"
+published: true
+---
+
+An end-to-end click-through-rate recommender on the Taobao display-ad dataset,
+built to demonstrate a full ML serving path across languages.
+
+```
+PyTorch (train) ──► ONNX (export) ──► Go (serve) ──► React (explore)
+```
+
+The interesting engineering is the _seam_: rather than serve the model from
+Python, the trained graph is exported to ONNX and run from Go via
+`onnxruntime`. Go owns feature assembly — vocabulary lookup, OOV fallback,
+behavior-sequence padding — and runs the forward pass. A single
+feature-encoding contract is consumed _identically_ by the Python trainer and
+the Go server, which is what prevents train/serve skew.
+
+**Why DIN**
+
+The dataset's signal lives in user behavior sequences. DIN's target-attention
+pooling weights each historical item by its relevance to the candidate ad, so a
+user's "interest" is computed _per candidate_ rather than as a flat average.

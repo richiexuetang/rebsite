@@ -1,0 +1,33 @@
+---
+title: "SvgIt"
+description: A Rust raster-to-vector converter (vectorizer.ai-style) with a fully-owned tracing pipeline and an optional ML layer, served through a live-preview web UI.
+repository: xuer98/svgit
+date: "2026-06-27"
+published: true
+---
+
+**SvgIt** turns raster images (PNG, JPG, …) into clean, compact SVG. It started
+as a fork of [visioncortex/vtracer](https://github.com/visioncortex/vtracer) and
+grew a fully-owned tracing pipeline plus an optional ML layer, all wrapped in a
+small [axum](https://github.com/tokio-rs/axum) HTTP service with a live-preview
+UI — drag, paste, or upload an image and it converts live as you tune parameters.
+
+The project is built in three levels:
+
+- **Level 1** — a thin service wrapping the VTracer core, with a parameter UI
+  for live tuning.
+- **Level 2** — a dependency-free, fully-owned classical pipeline: LAB color
+  quantization → region segmentation → contour tracing → RDP simplify →
+  Schneider curve-fit → layering → minified SVG, producing exactly-N-color
+  output.
+- **Level 3** — an ML layer (PyTorch → ONNX, run embedded in Rust via
+  [`ort`](https://github.com/pykeio/ort)): salient-object background removal,
+  FastSAM "segment everything," and CNN edge/corner refinement.
+
+**Engines**
+
+- **VTracer** — the upstream core: stacked color clustering + curve tracing.
+- **Owned** — the dependency-free Level-2 pipeline; exact N-color flat output
+  with background removal and edge refinement.
+- **Segment** — FastSAM segmentation into a layered SVG, one `<g>` per detected
+  object.

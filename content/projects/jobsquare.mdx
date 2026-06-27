@@ -1,0 +1,29 @@
+---
+title: "jobsquare"
+description: A personal job-listing watcher that polls company career boards across many ATS platforms, dedupes against a local store, and notifies you about new or changed roles.
+repository: xuer98/jobsquare
+date: "2026-06-27"
+published: true
+---
+
+A personal job-listing watcher. It polls company career boards across many ATS
+platforms, keeps only the listings you care about, remembers what it has
+already seen, and notifies you about anything **new** or **changed**.
+
+```
+sources.yaml ─▶ fetch_all ─▶ filter_jobs ─▶ Store.diff ─▶ dispatch
+ (config)       (per-ATS      (keywords,     (SQLite      (console/Slack/
+                 fetchers)     location,       dedup →      webhook/email)
+                               recency)        new/changed)
+```
+
+**How it works**
+
+- **Many sources, one shape** — each board is normalized into a common `Job`
+  record regardless of which ATS it came from.
+- **Bespoke fetchers** for companies with no standard ATS sit behind the same
+  interface as the slug-based ones.
+- **Stateful dedup** — a local SQLite DB tracks every listing so repeat runs
+  only surface diffs, not the whole board.
+- **Pluggable notifiers** — console always; Slack, generic webhook, and email
+  activate when their environment variables are set.

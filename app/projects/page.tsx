@@ -22,10 +22,8 @@ export default async function ProjectsPage() {
   const featured = allProjects.find(
     (project) => project.slug === "ritcher-maps"
   )!;
-  const top2 = allProjects.find(
-    (project) => project.slug === "levels-scraper"
-  )!;
-  const top3 = allProjects.find((project) => project.slug === "ritcher-maps")!;
+  const top2 = allProjects.find((project) => project.slug === "svgit")!;
+  const top3 = allProjects.find((project) => project.slug === "recsys")!;
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(

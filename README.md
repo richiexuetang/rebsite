@@ -10,7 +10,7 @@ My personal website, built with [Next.js](https://nextjs.org/), [Tailwind CSS](h
 ## Running Locally
 
 ```sh-session
-git clone https://github.com/richiexuetang/rebsite
+git clone https://github.com/xuer98/rebsite
 cd rebsite
 ```
 

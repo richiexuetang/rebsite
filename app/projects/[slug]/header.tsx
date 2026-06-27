@@ -76,7 +76,7 @@ export const Header: React.FC<Props> = ({ project, views }) => {
                 } `}
               />
             </Link> */}
-            <Link target="_blank" href="https://github.com/richiexuetang">
+            <Link target="_blank" href="https://github.com/xuer98">
               <Github
                 className={`w-6 h-6 duration-200 hover:font-medium ${
                   isIntersecting
