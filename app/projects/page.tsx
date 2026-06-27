@@ -7,10 +7,9 @@ import { Article } from "./article";
 import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
 
-const redis = Redis.fromEnv();
-
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 export default async function ProjectsPage() {
+  const redis = Redis.fromEnv();
   const views = (
     await redis.mget<number[]>(
       ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":"))
@@ -23,10 +22,10 @@ export default async function ProjectsPage() {
   const featured = allProjects.find(
     (project) => project.slug === "ritcher-maps"
   )!;
-  const top2 = allProjects.find((project) => project.slug === "zodmon")!;
-  const top3 = allProjects.find(
+  const top2 = allProjects.find(
     (project) => project.slug === "levels-scraper"
   )!;
+  const top3 = allProjects.find((project) => project.slug === "ritcher-maps")!;
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(

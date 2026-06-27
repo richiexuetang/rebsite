@@ -1,23 +1,23 @@
 import "../global.css";
-import { Inter } from "next/font/google";
-import LocalFont from "next/font/local";
+import { Inter } from "@next/font/google";
+import LocalFont from "@next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "Richard Tang's portfolio",
-    template: "%s | Portfolio",
+    default: "xuer.io",
+    template: "%s | xuer.io",
   },
   description: "",
   openGraph: {
-    title: "my-rebsite.com",
+    title: "xuer.io",
     description: "",
-    url: "https://rebsite-eight.vercel.app/",
-    siteName: "my-rebsite.com",
+    url: "https://xuer.io",
+    siteName: "xuer.io",
     images: [
       {
-        url: "https://my-rebsite.com/og.png",
+        url: "https://xuer.io/og.png",
         width: 1920,
         height: 1080,
       },
@@ -35,6 +35,10 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  twitter: {
+    title: "Xuer",
+    card: "summary_large_image",
   },
   icons: {
     shortcut: "/favicon.png",
